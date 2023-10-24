@@ -6,6 +6,13 @@ resource "random_pet" "azurerm_kubernetes_cluster_dns_prefix" {
   prefix = "dns"
 }
 
+resource "azurerm_container_registry" "Acr"{
+  name                = "DevOpsContainerRegistry"
+  resource_group_name = var.resource_group_name
+  location            = var.resource_group_location
+  sku                 = "Premium"
+}
+
 resource "azurerm_kubernetes_cluster" "k8s" {
   location            = var.resource_group_location
   name                = random_pet.azurerm_kubernetes_cluster_name.id
@@ -32,4 +39,11 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     network_plugin    = "kubenet"
     load_balancer_sku = "standard"
   }
+}
+
+resource "azurerm_role_assignment" "kubernetes_acr"{
+  principal_id                     = azurerm_kubernetes_cluster.k8s.kubelet_identity[0].object_id
+  role_definition_name             = "AcrPull"
+  scope                            = azurerm_container_registry.Acr.id
+  skip_service_principal_aad_check = true
 }
