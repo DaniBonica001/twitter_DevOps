@@ -36,3 +36,18 @@ output "kube_config" {
   value     = azurerm_kubernetes_cluster.k8s.kube_config_raw
   sensitive = true
 }
+
+output "login_server" {
+  value     = azurerm_container_registry.Acr.login_server
+  sensitive = true
+}
+
+output "acr_username" {
+  value     = azurerm_container_registry.Acr.admin_username
+  sensitive = true
+}
+
+output "acr_password" {
+  value     = azurerm_container_registry.Acr.admin_password
+  sensitive = true
+}

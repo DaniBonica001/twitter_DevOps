@@ -40,3 +40,19 @@ output "kube_config" {
   value     = "Kube Config: ${module.aks.kube_config}"
   sensitive = true
 }
+
+output "login_server" {
+  value     = "Login Server: ${module.aks.login_server}"
+  sensitive = true
+}
+
+output "acr_username" {
+  value     = "ACR Username: ${module.aks.acr_username}"
+  sensitive = true
+}
+
+output "acr_password" {
+  value     = "ACR Password: ${module.aks.acr_password}"
+  sensitive = true
+}
+

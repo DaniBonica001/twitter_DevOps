@@ -6,8 +6,13 @@ resource "random_pet" "azurerm_kubernetes_cluster_dns_prefix" {
   prefix = "dns"
 }
 
+resource "random_pet" "azurerm_container_registry_name" {
+  prefix = "acr"
+  separator = ""
+}
+
 resource "azurerm_container_registry" "Acr"{
-  name                = "DevOpsContainerRegistry"
+  name                = random_pet.azurerm_container_registry_name.id
   resource_group_name = var.resource_group_name
   location            = var.resource_group_location
   sku                 = "Premium"
