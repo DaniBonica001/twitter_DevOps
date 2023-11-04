@@ -43,7 +43,7 @@ output "kube_config" {
 
 output "login_server" {
   value     = "Login Server: ${module.aks.login_server}"
-  sensitive = true
+  sensitive = false
 }
 
 output "acr_username" {

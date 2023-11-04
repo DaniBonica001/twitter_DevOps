@@ -39,7 +39,7 @@ output "kube_config" {
 
 output "login_server" {
   value     = azurerm_container_registry.Acr.login_server
-  sensitive = true
+  sensitive = false
 }
 
 output "acr_username" {
