@@ -31,4 +31,10 @@ module "aks" {
   parent_id               = azurerm_resource_group.rg.id
 }
 
+module "cosmosdb" {
+  source = "./modules/cosmosdb"
+  resource_group_location = azurerm_resource_group.rg.location
+  resource_group_name     = azurerm_resource_group.rg.name
+}
+
 

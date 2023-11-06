@@ -56,3 +56,7 @@ output "acr_password" {
   sensitive = true
 }
 
+output "mongodb_connection_string"{
+  value     = "Connection String to CosmosDB: ${module.cosmosdb.mongodb_connection_string}"
+}
+
