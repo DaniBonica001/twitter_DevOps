@@ -36,13 +36,13 @@ output "host" {
   sensitive = true
 }
 
-output "kube_config" {
-  value     = "Kube Config: ${module.aks.kube_config}"
-  sensitive = true
-}
-
 output "login_server" {
   value     = "Login Server: ${module.aks.login_server}"
+  sensitive = false
+}
+
+output "acr_name" {
+  value     = "ACR Name: ${module.aks.acr_name}"
   sensitive = false
 }
 
