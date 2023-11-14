@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: twitter-config
+  labels:
+    app: twitter
+  namespace: twitter
+data:
+  url: acrawakesatyr.azurecr.io

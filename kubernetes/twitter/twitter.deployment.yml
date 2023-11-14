@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: twitter
+  labels:
+    app: twitter
+  namespace: twitter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: twitter
+  template:
+    metadata:
+      labels:
+        app: twitter
+    spec:
+      containers:
+        - name: app
+          image: learnk8s/knote-js:1.0.0
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: twitter-config
+                  key: url
+          imagePullPolicy: Always

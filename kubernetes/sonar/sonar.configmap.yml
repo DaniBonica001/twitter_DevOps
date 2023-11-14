@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sonar-config
+  labels:
+    app: postgres
+  namespace: sonar
+data:
+  url: jdbc:postgresql://postgres:5432/postgres

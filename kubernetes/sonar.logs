@@ -1,0 +1,73 @@
+Name:             sonarqube-65fb766784-p7g2z
+Namespace:        sonar
+Priority:         0
+Service Account:  default
+Node:             aks-agentpool-97572704-vmss000000/10.224.0.4
+Start Time:       Tue, 14 Nov 2023 11:09:37 -0500
+Labels:           app=sonarqube
+                  pod-template-hash=65fb766784
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.18
+IPs:
+  IP:           10.244.0.18
+Controlled By:  ReplicaSet/sonarqube-65fb766784
+Containers:
+  sonarqube:
+    Container ID:   containerd://4ccb920bb690adac4c5a390779b029d79aaedd9a6b6fdb7d7aad16b1197f7491
+    Image:          sonarqube
+    Image ID:       docker.io/library/sonarqube@sha256:9ba80ee7169b99048688158b0472a93a55ac8e87c230e34192ea620c3dcd3d8d
+    Port:           9000/TCP
+    Host Port:      0/TCP
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Tue, 14 Nov 2023 11:10:37 -0500
+      Finished:     Tue, 14 Nov 2023 11:10:43 -0500
+    Last State:     Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Tue, 14 Nov 2023 11:10:04 -0500
+      Finished:     Tue, 14 Nov 2023 11:10:10 -0500
+    Ready:          False
+    Restart Count:  3
+    Environment:
+      SONAR_JDBC_USERNAME:  <set to the key 'username' in secret 'postgres-secrets'>  Optional: false
+      SONAR_JDBC_URL:       <set to the key 'url' of config map 'sonar-config'>       Optional: false
+      SONAR_JDBC_PASSWORD:  <set to the key 'password' in secret 'postgres-secrets'>  Optional: false
+    Mounts:
+      /opt/sonarqube/data/ from sonar-data (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-x74mq (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  sonar-data:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  sonar-data
+    ReadOnly:   false
+  kube-api-access-x74mq:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                From               Message
+  ----     ------     ----               ----               -------
+  Normal   Scheduled  80s                default-scheduler  Successfully assigned sonar/sonarqube-65fb766784-p7g2z to aks-agentpool-97572704-vmss000000
+  Normal   Pulled     80s                kubelet            Successfully pulled image "sonarqube" in 248.565365ms (248.580366ms including waiting)
+  Normal   Pulled     74s                kubelet            Successfully pulled image "sonarqube" in 181.502548ms (181.516949ms including waiting)
+  Normal   Pulled     54s                kubelet            Successfully pulled image "sonarqube" in 198.851887ms (198.857987ms including waiting)
+  Normal   Pulling    21s (x4 over 80s)  kubelet            Pulling image "sonarqube"
+  Normal   Created    21s (x4 over 80s)  kubelet            Created container sonarqube
+  Normal   Started    21s (x4 over 80s)  kubelet            Started container sonarqube
+  Normal   Pulled     21s                kubelet            Successfully pulled image "sonarqube" in 214.908735ms (214.913635ms including waiting)
+  Warning  BackOff    1s (x5 over 68s)   kubelet            Back-off restarting failed container sonarqube in pod sonarqube-65fb766784-p7g2z_sonar(5ae74ded-a5d9-43f6-a514-d30405aa4789)
