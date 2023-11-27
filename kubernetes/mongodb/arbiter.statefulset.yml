@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mongodb-arbiter
-  namespace: twitter
+  namespace: database
 spec:
   serviceName: mongodb-arbiter-headless
   selector:
@@ -25,7 +25,7 @@ spec:
                 matchLabels:
                   app.kubernetes.io/name: mongodb
               namespaces:
-              - twitter
+              - database
               topologyKey: kubernetes.io/hostname
             weight: 1
       securityContext:

@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mongodb-headless
-  namespace: twitter
+  namespace: database
 spec:
   type: ClusterIP
   clusterIP: None
