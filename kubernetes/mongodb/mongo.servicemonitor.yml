@@ -12,7 +12,7 @@ spec:
     interval: 30s
   namespaceSelector:
     matchNames:
-    - database
+    - twitter
   selector:
     matchLabels:
       app.kubernetes.io/name: mongodb
