@@ -6,4 +6,4 @@ metadata:
     app: twitter
   namespace: twitter
 data:
-  url: acrawakesatyr.azurecr.io
+  url: acrcalmwhale.azurecr.io

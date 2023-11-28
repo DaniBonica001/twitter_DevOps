@@ -21,9 +21,16 @@ spec:
           ports:
             - containerPort: 3000
           env:
-            - name: DATABASE_URL
-              valueFrom:
-                configMapKeyRef:
-                  name: twitter-config
-                  key: url
-          imagePullPolicy: Always
+          - name: MONGODB_HOSTNAME
+            value: mongodb-0.mongodb-headless.database
+          - name: MONGODB_PORT
+            value: "27017"
+          - name: MONGODB_DATABASE
+            value: test
+          - name: MONGODB_USERNAME
+            value: admin
+          - name: MONGODB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: creds
+                key: db-password
